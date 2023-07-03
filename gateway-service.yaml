@@ -1,0 +1,12 @@
+spring:
+  jmx:
+    enabled: false
+  cloud:
+    gateway:
+      routes:
+        - id: pages
+          uri: https://dashaun-dev.github.io
+          predicates:
+            - Path=/**
+          filters:
+            - RewritePath=/sdrpi/?(?<segment>.*), /$\{segment}
